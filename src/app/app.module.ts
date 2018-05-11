@@ -19,6 +19,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddressComponent } from './address/address.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { PostProductComponent } from './post-product/post-product.component';
+import { MyProductsComponent } from './my-products/my-products.component';
+import { CategoryComponent } from './category/category.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -29,7 +35,13 @@ import { SettingsComponent } from './settings/settings.component';
     RegistrationComponent,
     LoginComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddressComponent,
+    CategoriesComponent,
+    PostProductComponent,
+    MyProductsComponent,
+    CategoryComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
