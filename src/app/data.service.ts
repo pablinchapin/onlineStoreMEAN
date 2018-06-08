@@ -11,6 +11,7 @@ export class DataService {
   messageType = 'danger';
 
   user : any;
+  carItems = 0;
 
   constructor(
     private router : Router,
@@ -51,6 +52,38 @@ export class DataService {
       this.error(e)
     }
   }
-  
-}
 
+  getCart(){
+    const cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+  }
+
+  addToCart(item : string){
+    const cart : any = this.getCart();
+
+    if(cart.find(data => JSON.stringify(data) === JSON.stringify(item))){
+      return false;
+    }else{
+      cart.push(item);
+      this.carItems++;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      return true;
+    }
+  }
+
+  removeFromCart(item : string){
+    let cart : any = this.getCart();
+
+    if(cart.find(data => JSON.stringify(data) === JSON.stringify(item))){
+      cart = cart.filter(data => JSON.stringify(data) !== JSON.stringify(item));
+      this.carItems--;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }
+
+  clearCart(){
+    this.carItems = 0;
+    localStorage.setItem('cart', '[]');
+  }
+
+}
