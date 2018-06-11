@@ -12,7 +12,7 @@ export class AppComponent {
   isCollapsed = true;
 
   constructor(private router: Router, private data: DataService) {
-    this.data.carItems = this.data.getCart().length;
+    this.data.cartItems = this.data.getCart().length;
     this.data.getProfile();
   }
 
@@ -30,7 +30,7 @@ export class AppComponent {
 
   logout(){
     this.data.user = {};
-    this.data.carItems = 0;
+    this.data.cartItems = 0;
     localStorage.clear();
     this.router.navigate(['']);
   }

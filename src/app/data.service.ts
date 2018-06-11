@@ -11,7 +11,7 @@ export class DataService {
   messageType = 'danger';
 
   user : any;
-  carItems = 0;
+  cartItems = 0;
 
   constructor(
     private router : Router,
@@ -26,17 +26,17 @@ export class DataService {
 
   error(message){
     this.messageType = 'danger';
-    this.message = 'message';
+    this.message = message;
   }
 
   warning(message){
     this.messageType = 'warning';
-    this.message = 'message';
+    this.message = message;
   }
 
   success(message){
     this.messageType = 'success';
-    this.message = 'message';
+    this.message = message;
   }
 
   async getProfile(){
@@ -65,7 +65,7 @@ export class DataService {
       return false;
     }else{
       cart.push(item);
-      this.carItems++;
+      this.cartItems++;
       localStorage.setItem('cart', JSON.stringify(cart));
       return true;
     }
@@ -76,13 +76,13 @@ export class DataService {
 
     if(cart.find(data => JSON.stringify(data) === JSON.stringify(item))){
       cart = cart.filter(data => JSON.stringify(data) !== JSON.stringify(item));
-      this.carItems--;
+      this.cartItems--;
       localStorage.setItem('cart', JSON.stringify(cart));
     }
   }
 
   clearCart(){
-    this.carItems = 0;
+    this.cartItems = 0;
     localStorage.setItem('cart', '[]');
   }
 
